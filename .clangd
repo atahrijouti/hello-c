@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://json.schemastore.org/clangd.json
+Diagnostics:
+  ClangTidy:
+    Add: [modernize*, readability*, bugprone*, performance*]
+    Remove: [readability-magic-numbers, readability-identifier-length]
+
+CompileFlags:
+  Add:
+    - -xc
+    - -std=c23
+    - -march=native
+    - -Wall
+    - -Wextra
+    - -Wpedantic
+

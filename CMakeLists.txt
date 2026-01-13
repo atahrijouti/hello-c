@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_C_COMPILER clang)
+
+project(hello-c C)
+
+set(CMAKE_C_STANDARD 23)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_executable(${PROJECT_NAME} main.c)
+target_compile_options(${PROJECT_NAME} PRIVATE -march=native -Wall -Wextra -Wpedantic)

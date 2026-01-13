@@ -1,0 +1,43 @@
+BasedOnStyle: LLVM 
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Always
+AllowAllParametersOfDeclarationOnNextLine: true
+AlignConsecutiveMacros: false
+AlignEscapedNewlines: DontAlign
+AlignAfterOpenBracket: BlockIndent
+AlignOperands: false
+AlignTrailingComments: false
+BinPackArguments: false
+BinPackParameters: false
+BreakStringLiterals: false
+BreakConstructorInitializers: AfterColon
+ColumnLimit: 80
+ContinuationIndentWidth: 2
+ConstructorInitializerIndentWidth: 2
+Cpp11BracedListStyle: true
+FixNamespaceComments: false
+IndentWidth: 2
+IndentCaseLabels: true
+IncludeBlocks: Merge
+IndentPPDirectives: BeforeHash
+IncludeCategories:
+  - Regex: '"[[:alnum:]._-]+"'
+    Priority: 1
+    SortPriority: 1
+  - Regex: '^((<|").*/)'
+    Priority: 2
+    SortPriority: 2
+  - Regex: "<[[:alnum:]._-]+>"
+    Priority: 3
+    SortPriority: 3
+InsertBraces: true
+NamespaceIndentation: All
+PenaltyReturnTypeOnItsOwnLine: 200
+PenaltyBreakAssignment: 200
+ReflowComments: false
+SortIncludes: true
+SortUsingDeclarations: false
+SpacesInContainerLiterals: false
+TabWidth: 2
+UseTab: Never
+

@@ -1,0 +1,15 @@
+[tasks.build]
+env = {}
+quiet = true
+run = "cmake --build build"
+
+[tasks.config]
+env = { CC = "clang", CMAKE_GENERATOR = "Ninja"}
+run = "cmake -B build"
+
+[tasks.run]
+run = "./build/hello-c"
+
+[tasks.build-and-run]
+depends = ["build"]
+depends_post = ["run"]
