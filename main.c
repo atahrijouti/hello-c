@@ -33,6 +33,18 @@ static void MenuScreen_cleanup(struct Screen *self) {
   free(menu);
 }
 
+static const struct ScreenVTable MenuScreen_vtable = {
+  .draw = MenuScreen_draw,
+  .cleanup = MenuScreen_cleanup,
+};
+
+struct Screen *MenuScreen_create(void) {
+  struct MenuScreen *menu = malloc(sizeof(struct MenuScreen));
+  menu->screen.vtable = &MenuScreen_vtable;
+  menu->title = "Main Menu";
+  return (struct Screen *)menu;
+}
+
 static void GameScreen_draw(struct Screen *self) {
   struct GameScreen *game = (struct GameScreen *)self;
   printf("GameScreen: Score = %d\n", game->score);
@@ -44,22 +56,10 @@ static void GameScreen_cleanup(struct Screen *self) {
   free(game);
 }
 
-static const struct ScreenVTable MenuScreen_vtable = {
-  .draw = MenuScreen_draw,
-  .cleanup = MenuScreen_cleanup,
-};
-
 static const struct ScreenVTable GameScreen_vtable = {
   .draw = GameScreen_draw,
   .cleanup = GameScreen_cleanup,
 };
-
-struct Screen *MenuScreen_create(void) {
-  struct MenuScreen *menu = malloc(sizeof(struct MenuScreen));
-  menu->screen.vtable = &MenuScreen_vtable;
-  menu->title = "Main Menu";
-  return (struct Screen *)menu;
-}
 
 struct Screen *GameScreen_create(void) {
   struct GameScreen *game = malloc(sizeof(struct GameScreen));
